@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# 禁止抓取 GitHub 的一些系统页面（如果有的话）
+Disallow: /private/
+Disallow: /tmp/
+
+# 告诉爬虫你的地图在哪里
+Sitemap: https://lyus1688.github.io/lyjj/sitemap.xml
