@@ -1,37 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Insights & Digital Strategy | Lyus1688 Blog</title>
-    <meta name="description" content="Personal blog of Lyus1688 focused on SEO strategies, academic conference trends, and digital marketing insights.">
-    <meta name="keywords" content="SEO, Digital Marketing, Academic Conferences, Google Optimization, Bing SEO">
+    <title>Lyus1688 SEO博客 | 专注学术会议推广与谷歌优化策略</title>
+    <meta name="description" content="Lyus1688个人博客，分享关于学术会议网站SEO优化、Google排名策略、Robots.txt配置以及学术出版趋势的专业见解。">
+    <meta name="keywords" content="SEO优化, 学术会议推广, Google排名, 必应搜索, Robots.txt, 网站流量, 学术聚合平台">
     <meta name="author" content="Lyus1688">
 
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --bg-color: #f8f9fa;
+            --primary-color: #0056b3; /* 更稳重的深蓝色 */
+            --accent-color: #e67e22; /* 活力的橙色作为点缀 */
+            --bg-color: #f4f6f8;
             --text-color: #333;
+            --card-bg: #ffffff;
         }
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            font-family: "Microsoft YaHei", "Heiti SC", 'Segoe UI', sans-serif; /* 优先使用微软雅黑 */
+            line-height: 1.7;
             margin: 0;
             color: var(--text-color);
             background-color: var(--bg-color);
         }
-        /* Header */
+
+        /* 顶部导航 */
         header {
-            background: #fff;
-            border-bottom: 1px solid #eee;
+            background: var(--card-bg);
+            border-bottom: 1px solid #ddd;
             padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         .container {
-            width: 90%;
-            max-width: 1000px;
+            width: 92%;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 15px;
         }
@@ -41,87 +46,113 @@
             align-items: center;
         }
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: bold;
             color: var(--primary-color);
             text-decoration: none;
+            letter-spacing: 1px;
         }
         .nav-links a {
-            margin-left: 20px;
+            margin-left: 25px;
             text-decoration: none;
-            color: #666;
+            color: #555;
             font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
         }
-        .nav-links a:hover { color: var(--accent-color); }
+        .nav-links a:hover { color: var(--primary-color); }
 
-        /* Main Content */
+        /* 头部大图区域 (Hero Section) */
         .hero {
+            background: linear-gradient(135deg, #0056b3 0%, #004494 100%);
+            color: white;
+            padding: 80px 20px;
             text-align: center;
-            padding: 60px 20px;
-            background: #fff;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
-        h1 { margin-bottom: 10px; color: var(--primary-color); }
-        .subtitle { color: #666; font-size: 1.2rem; }
+        .hero h1 { margin: 0 0 15px 0; font-size: 2.5rem; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
 
-        /* Blog Grid */
+        /* 主要内容布局 */
         .content-wrapper {
             display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
+            gap: 40px;
+            margin-bottom: 60px;
         }
         .main-content { flex: 3; }
-        .sidebar { flex: 1; min-width: 250px; }
+        .sidebar { flex: 1; min-width: 280px; }
 
+        /* 文章卡片样式 */
         .article-card {
-            background: #fff;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            border: 1px solid #e1e4e8;
-            transition: transform 0.2s;
+            background: var(--card-bg);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #eaeaea;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .article-card:hover { transform: translateY(-3px); border-color: var(--accent-color); }
-        .article-title {
-            margin-top: 0;
-            font-size: 1.5rem;
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
         }
-        .article-title a { text-decoration: none; color: var(--primary-color); }
+        .tag {
+            display: inline-block;
+            background-color: #eef4fc;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .article-title { margin-top: 5px; margin-bottom: 10px; font-size: 1.6rem; }
+        .article-title a { text-decoration: none; color: #222; }
+        .article-title a:hover { color: var(--primary-color); }
         .meta { font-size: 0.9rem; color: #888; margin-bottom: 15px; }
+        .excerpt { color: #555; margin-bottom: 20px; }
         .read-more {
             display: inline-block;
-            margin-top: 10px;
-            color: var(--accent-color);
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: bold;
+            border-bottom: 2px solid transparent;
         }
+        .read-more:hover { border-bottom-color: var(--primary-color); }
 
-        /* Sidebar */
+        /* 侧边栏样式 */
         .widget {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #e1e4e8;
-            margin-bottom: 20px;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            margin-bottom: 25px;
+            border: 1px solid #eaeaea;
         }
-        .widget h3 { margin-top: 0; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; display: inline-block; }
+        .widget h3 { margin-top: 0; border-left: 4px solid var(--accent-color); padding-left: 12px; font-size: 1.2rem; }
         .widget ul { list-style: none; padding: 0; }
-        .widget li { margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .widget a { text-decoration: none; color: #555; }
+        .widget li { margin-bottom: 12px; border-bottom: 1px dashed #eee; padding-bottom: 8px; }
+        .widget a { text-decoration: none; color: #666; display: block; }
+        .widget a:hover { color: var(--primary-color); padding-left: 5px; transition: padding 0.2s; }
+        
+        .profile-box { text-align: center; }
+        .profile-box img { width: 80px; height: 80px; border-radius: 50%; background: #ddd; margin-bottom: 10px; }
 
-        /* Footer */
+        /* 底部 */
         footer {
+            background: #222;
+            color: #aaa;
             text-align: center;
-            padding: 40px 0;
-            margin-top: 50px;
-            background: var(--primary-color);
-            color: #fff;
+            padding: 50px 0;
+            margin-top: auto;
         }
 
-        /* Responsive */
+        /* 手机端适配 */
         @media (max-width: 768px) {
             .content-wrapper { flex-direction: column; }
-            .nav-links { display: none; } /* Simplified for mobile */
+            .nav-links { display: none; } /* 手机端暂时隐藏菜单 */
+            .hero h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -130,12 +161,12 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">LYUS1688 SEO</a>
+                <a href="#" class="logo">LYUS1688 博客</a>
                 <div class="nav-links">
-                    <a href="#">Home</a>
-                    <a href="#">Strategies</a>
-                    <a href="#">Conferences</a>
-                    <a href="#">About</a>
+                    <a href="#">首页</a>
+                    <a href="#">SEO策略</a>
+                    <a href="#">学术会议动态</a>
+                    <a href="#">关于我</a>
                 </div>
             </nav>
         </div>
@@ -143,8 +174,8 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Expert SEO Strategies & Insights</h1>
-            <p class="subtitle">Exploring the intersection of Search Engine Optimization, AI, and Academic Publishing.</p>
+            <h1>数据驱动的学术会议推广策略</h1>
+            <p>分享基于 Google 与 Bing 的搜索引擎优化实战经验，助力学术聚合平台流量增长。</p>
         </div>
     </section>
 
@@ -153,50 +184,73 @@
         <main class="main-content">
             
             <article class="article-card">
-                <h2 class="article-title"><a href="#">How to Optimize Academic Conference Websites for Google</a></h2>
-                <div class="meta">Posted on November 25, 2025 | Category: SEO</div>
-                <p>Learn the key strategies to rank academic events on search engines. From schema markup to keyword research for scientific topics...</p>
-                <a href="#" class="read-more">Read Article &rarr;</a>
+                <span class="tag">实战技巧</span>
+                <h2 class="article-title"><a href="#">学术会议网站如何做 Google SEO 优化？</a></h2>
+                <div class="meta">发布于 2025年11月25日 | 阅读: 2,341</div>
+                <p class="excerpt">对于学术会议聚合网站来说，结构化数据（Schema Markup）是排名的关键。本文将深入探讨如何利用 Event Schema 让你的会议直接展示在 Google 的活动搜索结果中，以及如何通过长尾关键词覆盖细分学科...</p>
+                <a href="#" class="read-more">阅读全文 &rarr;</a>
             </article>
 
             <article class="article-card">
-                <h2 class="article-title"><a href="#">Understanding Robots.txt for Aggregator Sites</a></h2>
-                <div class="meta">Posted on November 20, 2025 | Category: Technical SEO</div>
-                <p>Controlling how search engines crawl your aggregator is crucial. Avoid duplicate content issues and manage your crawl budget effectively...</p>
-                <a href="#" class="read-more">Read Article &rarr;</a>
+                <span class="tag">技术 SEO</span>
+                <h2 class="article-title"><a href="#">Robots.txt 避坑指南：别让爬虫误伤你的聚合页</a></h2>
+                <div class="meta">发布于 2025年11月22日 | 阅读: 1,890</div>
+                <p class="excerpt">很多聚合类网站因为 Robots.txt 设置错误，导致搜索引擎无法抓取核心分类页。如果不小心屏蔽了 URL 参数，可能会导致大量的重复内容被 Google 惩罚。这里有一份标准配置模板...</p>
+                <a href="#" class="read-more">阅读全文 &rarr;</a>
             </article>
 
             <article class="article-card">
-                <h2 class="article-title"><a href="#">The Impact of AI on Search Rankings in 2025</a></h2>
-                <div class="meta">Posted on November 15, 2025 | Category: Industry Trends</div>
-                <p>With the rise of LLMs, search behavior is changing. Here is what webmasters need to know about the future of organic traffic...</p>
-                <a href="#" class="read-more">Read Article &rarr;</a>
+                <span class="tag">行业趋势</span>
+                <h2 class="article-title"><a href="#">2025年 EI 与 Scopus 检索标准更新解读</a></h2>
+                <div class="meta">发布于 2025年11月15日 | 阅读: 3,105</div>
+                <p class="excerpt">学术出版界风云变幻，最新的 EI 检索标准对会议论文的质量要求更加严格。作为会议组织者或推广者，了解这些指标（如 JIF, CiteScore）对于选择合作伙伴至关重要...</p>
+                <a href="#" class="read-more">阅读全文 &rarr;</a>
+            </article>
+
+            <article class="article-card">
+                <span class="tag">AI 与搜索</span>
+                <h2 class="article-title"><a href="#">AI 概览 (SGE) 时代，如何保持网站流量？</a></h2>
+                <div class="meta">发布于 2025年11月10日 | 阅读: 1,560</div>
+                <p class="excerpt">随着 ChatGPT 和 Google SGE 的普及，传统的“蓝色链接”点击率正在下降。我们需要调整内容策略，从“提供答案”转向“提供独特见解和一手数据”，才能在 AI 时代生存...</p>
+                <a href="#" class="read-more">阅读全文 &rarr;</a>
             </article>
 
         </main>
 
         <aside class="sidebar">
-            <div class="widget">
-                <h3>About Me</h3>
-                <p>I am an SEO specialist and academic conference aggregator manager based in China. I share insights on ranking globally on Bing and Google.</p>
+            <div class="widget profile-box">
+                <h3>关于博主</h3>
+                <p style="text-align: left; margin-top: 15px;">
+                    我是 Lyus1688，一名专注于<strong>学术会议聚合平台</strong>运营与 SEO 优化的专家。
+                </p>
+                <p style="text-align: left; font-size: 0.9rem;">
+                    擅长 Google/Bing 国际排名策略，致力于通过技术手段解决爬虫抓取、关键词布局及网站架构难题。
+                </p>
             </div>
             
             <div class="widget">
-                <h3>Categories</h3>
+                <h3>热门分类</h3>
                 <ul>
-                    <li><a href="#">Technical SEO</a></li>
-                    <li><a href="#">Content Strategy</a></li>
-                    <li><a href="#">Academic Conferences</a></li>
-                    <li><a href="#">Google Updates</a></li>
+                    <li><a href="#">🚀 技术 SEO (Technical SEO)</a></li>
+                    <li><a href="#">📝 内容营销策略</a></li>
+                    <li><a href="#">🎓 学术会议资讯 (ICC/IEEE)</a></li>
+                    <li><a href="#">🔍 搜索引擎算法更新</a></li>
+                    <li><a href="#">📊 数据分析与工具</a></li>
                 </ul>
+            </div>
+
+            <div class="widget">
+                <h3>联系方式</h3>
+                <p>Email: contact@example.com</p>
+                <p>WeChat: Lyus1688_SEO</p>
             </div>
         </aside>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Lyus1688. All Rights Reserved.</p>
-            <p style="font-size: 0.8rem; opacity: 0.7;">Powered by GitHub Pages</p>
+            <p>&copy; 2025 Lyus1688. 保留所有权利.</p>
+            <p style="font-size: 0.8rem; opacity: 0.6;">基于 GitHub Pages 构建 | 专注于学术会议 SEO 解决方案</p>
         </div>
     </footer>
 
