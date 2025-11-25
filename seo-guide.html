@@ -22,7 +22,10 @@
         .article-content { background: var(--card-bg); padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         h1 { color: var(--primary-color); font-size: 2rem; margin-bottom: 10px; }
         .meta { color: #888; font-size: 0.9rem; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        
+       
+        /* 新增：确保文章里的图片自适应宽度，并且有圆角 */
+        .article-content img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; }
+     
         /* 正文排版 */
         h2 { margin-top: 30px; border-left: 5px solid var(--primary-color); padding-left: 15px; }
         p { margin-bottom: 20px; font-size: 1.1rem; }
@@ -43,6 +46,7 @@
         <article class="article-content">
             <h1>学术会议网站如何做 Google SEO 优化？</h1>
             <div class="meta">发布者：Lyus1688 | 分类：实战技巧 | 2025-11-25</div>
+            <img src="seo-banner.jpg" alt="SEO优化配图">
 
             <p>对于学术会议聚合网站来说，流量的生命线在于能否精准触达科研人员。通用的 SEO 策略往往不够，我们需要针对“活动（Event）”这一特殊属性进行优化。</p>
 
