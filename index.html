@@ -1,31 +1,204 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>我的个人LYJJ主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Insights & Digital Strategy | Lyus1688 Blog</title>
+    <meta name="description" content="Personal blog of Lyus1688 focused on SEO strategies, academic conference trends, and digital marketing insights.">
+    <meta name="keywords" content="SEO, Digital Marketing, Academic Conferences, Google Optimization, Bing SEO">
+    <meta name="author" content="Lyus1688">
+
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+        }
         body {
-            font-family: sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-            padding-top: 50px;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         .container {
-            background-color: white;
-            width: 80%;
+            width: 90%;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 0 15px;
         }
-        h1 { color: #333; }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--accent-color); }
+
+        /* Main Content */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff;
+            margin-bottom: 30px;
+        }
+        h1 { margin-bottom: 10px; color: var(--primary-color); }
+        .subtitle { color: #666; font-size: 1.2rem; }
+
+        /* Blog Grid */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .main-content { flex: 3; }
+        .sidebar { flex: 1; min-width: 250px; }
+
+        .article-card {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #e1e4e8;
+            transition: transform 0.2s;
+        }
+        .article-card:hover { transform: translateY(-3px); border-color: var(--accent-color); }
+        .article-title {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .article-title a { text-decoration: none; color: var(--primary-color); }
+        .meta { font-size: 0.9rem; color: #888; margin-bottom: 15px; }
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Sidebar */
+        .widget {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e1e4e8;
+            margin-bottom: 20px;
+        }
+        .widget h3 { margin-top: 0; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; display: inline-block; }
+        .widget ul { list-style: none; padding: 0; }
+        .widget li { margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .widget a { text-decoration: none; color: #555; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-wrapper { flex-direction: column; }
+            .nav-links { display: none; } /* Simplified for mobile */
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>你好！欢迎来到我的网站</h1>
-        <p>这是我使用 GitHub Pages 搭建的第一个免费网页。</p>
-        <p>这里以后可以放我的简历、博客或者任何我想写的东西。</p>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">LYUS1688 SEO</a>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Strategies</a>
+                    <a href="#">Conferences</a>
+                    <a href="#">About</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Expert SEO Strategies & Insights</h1>
+            <p class="subtitle">Exploring the intersection of Search Engine Optimization, AI, and Academic Publishing.</p>
+        </div>
+    </section>
+
+    <div class="container content-wrapper">
+        
+        <main class="main-content">
+            
+            <article class="article-card">
+                <h2 class="article-title"><a href="#">How to Optimize Academic Conference Websites for Google</a></h2>
+                <div class="meta">Posted on November 25, 2025 | Category: SEO</div>
+                <p>Learn the key strategies to rank academic events on search engines. From schema markup to keyword research for scientific topics...</p>
+                <a href="#" class="read-more">Read Article &rarr;</a>
+            </article>
+
+            <article class="article-card">
+                <h2 class="article-title"><a href="#">Understanding Robots.txt for Aggregator Sites</a></h2>
+                <div class="meta">Posted on November 20, 2025 | Category: Technical SEO</div>
+                <p>Controlling how search engines crawl your aggregator is crucial. Avoid duplicate content issues and manage your crawl budget effectively...</p>
+                <a href="#" class="read-more">Read Article &rarr;</a>
+            </article>
+
+            <article class="article-card">
+                <h2 class="article-title"><a href="#">The Impact of AI on Search Rankings in 2025</a></h2>
+                <div class="meta">Posted on November 15, 2025 | Category: Industry Trends</div>
+                <p>With the rise of LLMs, search behavior is changing. Here is what webmasters need to know about the future of organic traffic...</p>
+                <a href="#" class="read-more">Read Article &rarr;</a>
+            </article>
+
+        </main>
+
+        <aside class="sidebar">
+            <div class="widget">
+                <h3>About Me</h3>
+                <p>I am an SEO specialist and academic conference aggregator manager based in China. I share insights on ranking globally on Bing and Google.</p>
+            </div>
+            
+            <div class="widget">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Technical SEO</a></li>
+                    <li><a href="#">Content Strategy</a></li>
+                    <li><a href="#">Academic Conferences</a></li>
+                    <li><a href="#">Google Updates</a></li>
+                </ul>
+            </div>
+        </aside>
     </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Lyus1688. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Powered by GitHub Pages</p>
+        </div>
+    </footer>
+
 </body>
 </html>
