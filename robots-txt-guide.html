@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robots.txt 避坑指南：别让爬虫误伤你的聚合页 - Lyus1688</title>
+    <meta name="description" content="聚合类网站Robots.txt配置详解，防止搜索引擎抓取无效页面，优化爬取预算。">
+    
+    <style>
+        /* 统一的样式风格 */
+        :root { --primary-color: #0056b3; --text-color: #333; --bg-color: #f4f6f8; --card-bg: #ffffff; }
+        body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.8; color: var(--text-color); background: var(--bg-color); margin: 0; }
+        
+        .container { width: 90%; max-width: 800px; margin: 0 auto; padding: 0 15px; }
+        
+        header { background: var(--card-bg); padding: 15px 0; border-bottom: 1px solid #ddd; margin-bottom: 40px; }
+        .back-link { text-decoration: none; color: #666; font-weight: bold; }
+        .back-link:hover { color: var(--primary-color); }
+
+        .article-content { background: var(--card-bg); padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        h1 { color: var(--primary-color); font-size: 2rem; margin-bottom: 10px; }
+        .meta { color: #888; font-size: 0.9rem; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        
+        h2 { margin-top: 30px; border-left: 5px solid var(--primary-color); padding-left: 15px; }
+        p { margin-bottom: 20px; font-size: 1.1rem; }
+        
+        /* 代码块样式 */
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        
+        footer { text-align: center; margin-top: 50px; padding: 30px 0; color: #999; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回首页</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <article class="article-content">
+            <h1>Robots.txt 避坑指南：别让爬虫误伤你的聚合页</h1>
+            <div class="meta">发布者：Lyus1688 | 分类：技术 SEO | 2025-11-22</div>
+
+            <p>对于学术会议聚合平台来说，页面数量往往是海量的。如果 Robots.txt 配置不当，Googlebot 可能会把宝贵的“爬取预算”（Crawl Budget）浪费在无效页面上，甚至因为抓取了大量的重复搜索结果页而惩罚你的网站。</p>
+
+            <h2>1. 核心原则：屏蔽站内搜索结果</h2>
+            <p>这是聚合站最容易犯的错误。一定要禁止爬虫抓取用户生成的搜索结果页，因为这些页面通常是无限生成的，且内容质量低。</p>
+            <pre><code>User-agent: *
+Disallow: /search?*
+Disallow: /search/
+Disallow: /api/</code></pre>
+
+            <h2>2. 必须指明 Sitemap 位置</h2>
+            <p>在 Robots.txt 文件的最后一行，一定要清楚地告诉爬虫你的站点地图在哪里。这对于新站被收录至关重要。</p>
+            <pre><code>Sitemap: https://lyus1688.github.io/lyjj/sitemap.xml</code></pre>
+
+            <h2>3. 慎用 Noindex</h2>
+            <p>Robots.txt 的 <code>Disallow</code> 只是告诉爬虫“不要访问”，但这并不等于“不要索引”。如果你想让某个页面彻底从 Google 消失，应该在页面 HTML 里使用 Meta Robots 标签，而不是仅仅在 Robots.txt 里屏蔽它。</p>
+            
+            <p><strong>总结：</strong> Robots.txt 是你与爬虫沟通的第一道门槛，保持简洁、准确，不要过度屏蔽。</p>
+        </article>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Lyus1688 SEO Blog</p>
+    </footer>
+
+</body>
+</html>
