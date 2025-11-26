@@ -6,4 +6,4 @@ Disallow: /private/
 Disallow: /tmp/
 
 # 告诉爬虫你的地图在哪里
-Sitemap: https://lyus1688.github.io/lyjj/sitemap.xml
+Sitemap: https://callfourpaper.xyz/sitemap.xml
