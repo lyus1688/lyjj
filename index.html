@@ -164,6 +164,48 @@
             .nav-links { display: none; } /* 手机端暂时隐藏菜单 */
             .hero h1 { font-size: 1.8rem; }
         }
+        /* 新增：会议时间表样式 */
+        .table-container {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #eaeaea;
+            overflow-x: auto; /* 手机上可以左右滑动 */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        th {
+            background-color: #f8f9fa;
+            text-align: left;
+            padding: 12px 15px;
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        tr:hover { background-color: #fcfcfc; }
+        
+        /* 状态标签 */
+        .status-open { color: #2ecc71; font-weight: bold; } /* 征稿中-绿色 */
+        .status-soon { color: #e67e22; font-weight: bold; } /* 快截止-橙色 */
+        .status-closed { color: #e74c3c; text-decoration: line-through; color: #999; } /* 已截止-灰色 */
+        
+        .btn-detail {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        .btn-detail:hover { opacity: 0.9; }
     </style>
 </head>
 <body>
@@ -190,6 +232,47 @@
     </section>
 
     <div class="container content-wrapper">
+        <section class="container">
+        <div class="table-container">
+            <h2 style="margin-top:0; border-left: 5px solid var(--accent-color); padding-left: 15px;">📅 2026 近期热门会议截稿时间表</h2>
+            <p style="color:#666; font-size:0.9rem; margin-bottom:20px;">这里汇集了最新的 EI/Scopus 检索会议信息，点击“详情”查看征稿要求。</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>会议简称</th>
+                        <th>全称 & 地点</th>
+                        <th>截稿日期</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ICCV 2026</strong></td>
+                        <td>Int'l Conf. on Computer Vision<br><span style="font-size:0.8rem; color:#888;">🇨🇳 Beijing, China</span></td>
+                        <td>2025-12-15</td>
+                        <td><span class="status-open">🟢 征稿中</span></td>
+                        <td><a href="#" class="btn-detail">详情</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>AIoT 2026</strong></td>
+                        <td>AI & Internet of Things<br><span style="font-size:0.8rem; color:#888;">🇸🇬 Singapore</span></td>
+                        <td>2025-11-30</td>
+                        <td><span class="status-soon">🟠 即将截止</span></td>
+                        <td><a href="#" class="btn-detail">详情</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>BigData 2025</strong></td>
+                        <td>IEEE Big Data Conf<br><span style="font-size:0.8rem; color:#888;">🇺🇸 New York, USA</span></td>
+                        <td>2025-10-20</td>
+                        <td><span class="status-closed">🔴 已截止</span></td>
+                        <td><span style="color:#999;">无</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
         
         <main class="main-content">
             
