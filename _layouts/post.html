@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | CallFourPaper Blog</title>
+    <meta name="description" content="{{ page.description }}">
+    
+    <link rel="icon" href="/avatar.jpg" type="image/jpeg">
+    {% include analytics.html %}
+
+    <style>
+        /* 复用核心样式 */
+        :root { --primary-color: #0056b3; --accent-color: #e67e22; --text-color: #333; --bg-color: #f4f6f8; --card-bg: #ffffff; }
+        body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.8; color: var(--text-color); background: var(--bg-color); margin: 0; }
+        
+        .container { width: 92%; max-width: 1100px; margin: 0 auto; padding: 0 15px; }
+        header { background: var(--card-bg); border-bottom: 1px solid #ddd; padding: 1rem 0; margin-bottom: 30px;}
+        .back-link { text-decoration: none; color: #666; font-weight: bold; }
+        
+        /* 文章布局 */
+        .content-wrapper { display: flex; gap: 30px; margin-bottom: 50px; }
+        .main-content { flex: 3; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .sidebar { flex: 1; min-width: 300px; }
+        
+        /* 文章样式 */
+        h1 { margin-top: 0; color: var(--primary-color); }
+        .post-meta { color: #888; font-size: 0.9rem; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .post-tag { background: #eef4fc; color: var(--primary-color); padding: 2px 8px; border-radius: 4px; margin-right: 10px; font-weight: bold; }
+        
+        /* 正文排版 */
+        .post-body h2 { border-left: 5px solid var(--primary-color); padding-left: 15px; margin-top: 40px; }
+        .post-body p { margin-bottom: 20px; font-size: 1.05rem; }
+        .post-body img { max-width: 100%; border-radius: 8px; margin: 20px 0; }
+        
+        @media (max-width: 768px) { .content-wrapper { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="/" class="back-link">← 返回首页</a>
+        </div>
+    </header>
+
+    <div class="container content-wrapper">
+        <main class="main-content">
+            <h1>{{ page.title }}</h1>
+            <div class="post-meta">
+                <span class="post-tag">{{ page.category }}</span>
+                <span>📅 发布于 {{ page.date | date: "%Y-%m-%d" }}</span>
+            </div>
+            
+            <div class="post-body">
+                {{ content }}
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div style="background:white; padding:20px; border-radius:8px;">
+                <h3>关于博主</h3>
+                <p>我是 lyjj，专注学术会议聚合与 SEO 优化。</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer style="text-align:center; padding:30px 0; color:#999;">
+        <p>&copy; 2025 CallFourPaper.xyz</p>
+    </footer>
+
+</body>
+</html>
