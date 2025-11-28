@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | CallFourPaper</title>
+    <meta name="description" content="{{ page.desc }}">
+    
+    <link rel="icon" href="/avatar.jpg" type="image/jpeg">
+    
+    <style>
+        :root { --primary-color: #0056b3; --accent-color: #e67e22; --text-color: #333; --bg-color: #f4f6f8; --card-bg: #ffffff; }
+        body { font-family: "Microsoft YaHei", sans-serif; line-height: 1.7; color: var(--text-color); background: var(--bg-color); margin: 0; }
+        .container { width: 92%; max-width: 1100px; margin: 0 auto; padding: 0 15px; }
+        header { background: var(--card-bg); border-bottom: 1px solid #ddd; padding: 1rem 0; margin-bottom: 30px;}
+        .back-link { text-decoration: none; color: #666; font-weight: bold; }
+        
+        .content-wrapper { display: flex; gap: 30px; margin-bottom: 50px; }
+        .main-content { flex: 3; }
+        .sidebar { flex: 1; min-width: 300px; }
+        
+        .conf-header { background: white; padding: 30px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid var(--primary-color); }
+        .section-box { background: white; padding: 30px; border-radius: 10px; margin-bottom: 20px; }
+        h2 { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; font-size: 1.4rem; color: var(--primary-color); }
+        
+        .date-box { background: white; padding: 25px; border-radius: 10px; border: 1px solid #ffe0b2; box-shadow: 0 4px 10px rgba(230, 126, 34, 0.1); }
+        .date-item { margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px; }
+        .date-label { display: block; color: #888; font-size: 0.9rem; }
+        .date-value { display: block; font-size: 1.1rem; font-weight: bold; color: #333; }
+        .highlight { color: #d35400; font-size: 1.3rem; }
+        .btn-submit { display: block; width: 100%; padding: 12px 0; text-align: center; background: var(--primary-color); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; }
+        
+        @media (max-width: 768px) { .content-wrapper { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="/" class="back-link">← 返回会议列表</a>
+        </div>
+    </header>
+
+    <div class="container content-wrapper">
+        <main class="main-content">
+            <div class="conf-header">
+                <h1 style="margin:0;">{{ page.title }}</h1>
+                <p style="color:#666; margin-top:10px;">
+                    📍 地点：{{ page.location }} <br>
+                    🏷️ 等级：{{ page.level }}
+                </p>
+            </div>
+
+            <div class="section-box">
+                <h2>会议简介</h2>
+                <p>{{ page.content }}</p>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="date-box">
+                <h3 style="margin-top:0; color:#e67e22;">⏳ 重要日期</h3>
+                <div class="date-item">
+                    <span class="date-label">截稿日期</span>
+                    <span class="date-value highlight">{{ page.deadline }}</span>
+                </div>
+                <div class="date-item">
+                    <span class="date-label">会议召开</span>
+                    <span class="date-value">{{ page.conf_date }}</span>
+                </div>
+                <a href="{{ page.website }}" target="_blank" class="btn-submit">前往官网投稿 &rarr;</a>
+            </div>
+        </aside>
+    </div>
+
+    <footer style="text-align:center; padding:30px 0; color:#999;">
+        <p>&copy; 2025 CallFourPaper.xyz</p>
+    </footer>
+
+</body>
+</html>
