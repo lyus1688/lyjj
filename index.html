@@ -235,7 +235,10 @@
         <div class="table-container">
             <h2 style="margin-top:0; border-left: 5px solid var(--accent-color); padding-left: 15px;">📅 2026 近期热门会议截稿时间表</h2>
             <p style="color:#666; font-size:0.9rem; margin-bottom:20px;">这里汇集了最新的 EI/Scopus 检索会议信息，点击“详情”查看征稿要求。</p>
-            
+            <div style="margin-bottom: 20px; position: relative;">
+                <input type="text" id="mySearchInput" onkeyup="searchTable()" placeholder="🔍 搜索会议名称、地点..." 
+                style="width: 100%; padding: 12px 15px; border: 2px solid #eee; border-radius: 6px; font-size: 1rem; box-sizing: border-box; outline: none; transition: border-color 0.3s;">
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -347,6 +350,50 @@
             <p style="font-size: 0.8rem; opacity: 0.6;">基于 GitHub Pages 构建 | 专注于学术会议 SEO 解决方案</p>
         </div>
     </footer>
+    <script>
+    function searchTable() {
+        // 1. 获取输入框的内容
+        var input = document.getElementById("mySearchInput");
+        var filter = input.value.toUpperCase(); // 转大写，实现不区分大小写搜索
+        
+        // 2. 获取表格和每一行
+        var table = document.querySelector("table");
+        var tr = table.getElementsByTagName("tr");
+
+        // 3. 循环遍历所有行，隐藏不符合条件的
+        for (var i = 1; i < tr.length; i++) { // i=1 是为了跳过表头(th)
+            var tdArr = tr[i].getElementsByTagName("td");
+            var found = false;
+            
+            // 检查这一行的每一列数据
+            for (var j = 0; j < tdArr.length; j++) {
+                if (tdArr[j]) {
+                    var txtValue = tdArr[j].textContent || tdArr[j].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        found = true;
+                        break; // 只要有一列匹配，就显示这一行
+                    }
+                }
+            }
+            
+            // 决定显示还是隐藏
+            if (found) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+    
+    // 给输入框加点交互效果：聚焦时边框变蓝
+    var searchBox = document.getElementById("mySearchInput");
+    searchBox.addEventListener("focus", function() {
+        this.style.borderColor = "#0056b3";
+    });
+    searchBox.addEventListener("blur", function() {
+        this.style.borderColor = "#eee";
+    });
+    </script>
 
 </body>
 </html>
