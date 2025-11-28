@@ -362,37 +362,21 @@
     
         <main class="main-content">
             
+          <main class="main-content">
+            
+            {% for post in site.posts limit:5 %}
             <article class="article-card">
-                <span class="tag">实战技巧</span>
-                <h2 class="article-title"><a href="seo-guide.html">学术会议网站如何做 Google SEO 优化？</a></h2>
-                <div class="meta">发布于 2025年11月25日 | 阅读: 2,341</div>
-                <p class="excerpt">对于学术会议聚合网站来说，结构化数据（Schema Markup）是排名的关键。本文将深入探讨如何利用 Event Schema 让你的会议直接展示在 Google 的活动搜索结果中，以及如何通过长尾关键词覆盖细分学科...</p>
-                <a href="seo-guide.html" class="read-more">阅读全文 &rarr;</a>
+                <span class="tag">{{ post.category }}</span>
+                <h2 class="article-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                <div class="meta">发布于 {{ post.date | date: "%Y年%m月%d日" }}</div>
+                
+                <p class="excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+                
+                <a href="{{ post.url }}" class="read-more">阅读全文 &rarr;</a>
             </article>
+            {% endfor %}
 
-            <article class="article-card">
-                <span class="tag">技术 SEO</span>
-                <h2 class="article-title"><a href="robots-txt-guide.html">Robots.txt 避坑指南：别让爬虫误伤你的聚合页</a></h2>
-                <div class="meta">发布于 2025年11月22日 | 阅读: 1,890</div>
-                <p class="excerpt">很多聚合类网站因为 Robots.txt 设置错误，导致搜索引擎无法抓取核心分类页。如果不小心屏蔽了 URL 参数，可能会导致大量的重复内容被 Google 惩罚。这里有一份标准配置模板...</p>
-                <a href="#" class="read-more"><a href="robots-txt-guide.html">阅读全文 &rarr;</a>
-            </article>
-
-            <article class="article-card">
-                <span class="tag">行业趋势</span>
-                <h2 class="article-title"><a href="fake-conference-warning.html">2025年 EI 与 Scopus 检索标准更新解读</a></h2>
-                <div class="meta">发布于 2025年11月15日 | 阅读: 3,105</div>
-                <p class="excerpt">学术出版界风云变幻，最新的 EI 检索标准对会议论文的质量要求更加严格。作为会议组织者或推广者，了解这些指标（如 JIF, CiteScore）对于选择合作伙伴至关重要...</p>
-                <a href="#" class="read-more"><a href="fake-conference-warning.html">阅读全文 &rarr;</a>
-            </article>
-
-            <article class="article-card">
-                <span class="tag">AI 与搜索</span>
-                <h2 class="article-title"><a href="#">AI 概览 (SGE) 时代，如何保持网站流量？</a></h2>
-                <div class="meta">发布于 2025年11月10日 | 阅读: 1,560</div>
-                <p class="excerpt">随着 ChatGPT 和 Google SGE 的普及，传统的“蓝色链接”点击率正在下降。我们需要调整内容策略，从“提供答案”转向“提供独特见解和一手数据”，才能在 AI 时代生存...</p>
-                <a href="#" class="read-more">阅读全文 &rarr;</a>
-            </article>
+        </main>
             <div class="section-box" style="margin-top: 40px;">
                 <h2 style="border-left: 5px solid var(--accent-color); padding-left: 15px;">❓ 常见问题解答 (FAQ)</h2>
                 
