@@ -287,7 +287,11 @@
     </section>
  <section class="container">
         <div class="table-container">
-            <h2 style="margin-top:0; border-left: 5px solid var(--accent-color); padding-left: 15px;">📅 2026 近期热门会议截稿时间表</h2>
+           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <div>
+                    <h2 style="margin:0; border-left: 5px solid var(--accent-color); padding-left: 15px;">📅 近期热门会议</h2>
+                    <p style="color:#666; font-size:0.9rem; margin: 5px 0 0 0;">汇集最新 EI/Scopus 检索信息</p>
+                </div>
             <div class="filter-group">
                 <span style="font-size:0.9rem; color:#666; margin-right:10px;">快速筛选:</span>
                 <button class="filter-btn active" onclick="filterByBtn('')">全部</button>
@@ -296,7 +300,11 @@
                 <button class="filter-btn" onclick="filterByBtn('Big Data')">大数据</button>
                 <button class="filter-btn" onclick="filterByBtn('IEEE')">IEEE</button>
             </div>
-            <p style="color:#666; font-size:0.9rem; margin-bottom:20px;">这里汇集了最新的 EI/Scopus 检索会议信息，点击“详情”查看征稿要求。</p>
+           <a href="mailto:text@example.com?subject=申请发布学术会议&body=你好，我想在贵网站发布会议信息：%0d%0a%0d%0a会议名称：%0d%0a官网链接：%0d%0a截稿日期：%0d%0a举办地点：" 
+                   class="btn-submit-conf">
+                   ➕ 发布会议
+                </a>
+            </div>
             <div style="margin-bottom: 20px; position: relative;">
                 <input type="text" id="mySearchInput" onkeyup="searchTable()" placeholder="🔍 搜索会议名称、地点..." 
                 style="width: 100%; padding: 12px 15px; border: 2px solid #eee; border-radius: 6px; font-size: 1rem; box-sizing: border-box; outline: none; transition: border-color 0.3s;">
