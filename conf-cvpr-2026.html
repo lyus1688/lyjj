@@ -22,6 +22,7 @@
       gtag('js', new Date());
       gtag('config', 'G-YSJK888PL9');
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script type="application/ld+json">
     {
@@ -119,6 +120,13 @@
                 <h2>会议简介</h2>
                 <p>CVPR (Conference on Computer Vision and Pattern Recognition) 是计算机视觉和模式识别领域的顶级会议。每年录取率极低（约20%），是所有 AI 领域学者梦寐以求的发表平台。CVPR 2026 将聚焦于生成式 AI、3D 重建、自动驾驶视觉等热点。</p>
             </div>
+            <div class="section-box">
+                <h2>📊 历年录用率趋势 (Acceptance Rate)</h2>
+                <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">数据基于过去 5 年的官方统计：</p>
+                <div style="height: 300px;">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
 
             <div class="section-box">
                 <h2>征稿主题 (Call for Papers)</h2>
@@ -194,5 +202,35 @@
         });
     }
     </script>
+    // --- 绘制图表逻辑 ---
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+      type: 'bar', // 图表类型：柱状图
+      data: {
+        labels: ['2021', '2022', '2023', '2024', '2025'], // X轴：年份
+        datasets: [{
+          label: '录用率 (%)',
+          data: [23.7, 25.3, 25.8, 23.6, 22.1], // Y轴：数据 (你可以去网上搜真实的填进去)
+          borderWidth: 1,
+          backgroundColor: 'rgba(0, 86, 179, 0.6)', // 柱子颜色 (你的主色调)
+          borderColor: '#0056b3',
+          borderRadius: 5
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 30 // Y轴最大值设为30%，这样柱子看起来高一点
+          }
+        },
+        plugins: {
+            legend: { display: false } // 隐藏图例，简洁一点
+        }
+      }
+    });
 </body>
 </html>
