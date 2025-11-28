@@ -7,6 +7,15 @@
   status_class: status-open
   url: conf-iccv-2026.html
 
+  - abbr: ECCV 2026
+  name: European Conference on Computer Vision
+  location: Paris, France
+  flag: 🇫🇷
+  deadline: 2026-03-05
+  status: 🟢 征稿中
+  status_class: status-open
+  url: conf-eccv-2026.html
+
 - abbr: AIoT 2026
   name: AI & Internet of Things
   location: Singapore
