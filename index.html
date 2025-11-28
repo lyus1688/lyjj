@@ -260,6 +260,40 @@
             background-color: var(--primary-color);
             color: white;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }/* FAQ 样式 */
+        .faq-item {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+        .faq-item summary {
+            font-weight: bold;
+            cursor: pointer;
+            list-style: none; /* 去掉默认的小三角 */
+            position: relative;
+            padding-right: 20px;
+            font-size: 1.05rem;
+            color: #333;
+        }
+        /* 自定义一个小箭头 */
+        .faq-item summary::after {
+            content: '+'; 
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        /* 展开时的样式 */
+        .faq-item[open] summary::after {
+            content: '-';
+        }
+        .faq-item p {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            padding-left: 10px;
+            border-left: 3px solid #eee;
         }
     </style>
 </head>
@@ -382,6 +416,24 @@
                 <p class="excerpt">随着 ChatGPT 和 Google SGE 的普及，传统的“蓝色链接”点击率正在下降。我们需要调整内容策略，从“提供答案”转向“提供独特见解和一手数据”，才能在 AI 时代生存...</p>
                 <a href="#" class="read-more">阅读全文 &rarr;</a>
             </article>
+            <div class="section-box" style="margin-top: 40px;">
+                <h2 style="border-left: 5px solid var(--accent-color); padding-left: 15px;">❓ 常见问题解答 (FAQ)</h2>
+                
+                <details class="faq-item">
+                    <summary>如何判断一个学术会议是否被 EI 检索？</summary>
+                    <p>最准确的方法是查询该会议往届的出版记录。如果往届论文集在 Engineering Village (EI Compendex) 中能查到，且出版社未变动，那么今年被检索的概率极高。请务必警惕承诺“100%检索”的会议。</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>CCF A/B/C 类会议有什么区别？</summary>
+                    <p>CCF 推荐列表是中国计算机学会发布的权威目录。A类为顶级会议（如 CVPR, ICCV），难度极大；B类为高水平会议；C类为重要会议。一般博士毕业要求发表 CCF B 类以上论文。</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>投稿后多久能收到录用通知？</summary>
+                    <p>这取决于具体会议。顶级会议（如 ICCV）通常有固定的审稿周期（约 3-4 个月）。而一般的小型会议通常在投稿后 1-2 个月内给出结果。请在投稿前仔细阅读 Important Dates 页面。</p>
+                </details>
+            </div>
 
         </main>
 
