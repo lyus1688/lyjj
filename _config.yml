@@ -2,3 +2,8 @@ title: CallFourPaper
 url: "https://callfourpaper.xyz" # 必须填你的真实域名
 plugins:
   - jekyll-sitemap
+  
+collections:
+  conferences:
+    output: true
+    permalink: /conf-:slug.html
