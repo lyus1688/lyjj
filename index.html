@@ -338,35 +338,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>ICCV 2026</strong></td>
-                        <td>Int'l Conf. on Computer Vision<br><span style="font-size:0.8rem; color:#888;">🇨🇳 Beijing, China</span></td>
-                        <td>2025-12-15</td>
-                        <td><span class="status-open">🟢 征稿中</span></td>
-                        <td><a href="conf-iccv-2026.html" class="btn-detail">详情</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>CVPR 2026</strong></td>
-                        <td>IEEE/CVF Conf. on Computer Vision<br><span style="font-size:0.8rem; color:#888;">🇺🇸 San Diego, USA</span></td>
-                        <td>2025-12-05</td>
-                        <td><span class="status-open">🟢 征稿中</span></td>
-                        <td><a href="conf-cvpr-2026.html" class="btn-detail">详情</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>AIoT 2026</strong></td>
-                        <td>AI & Internet of Things<br><span style="font-size:0.8rem; color:#888;">🇸🇬 Singapore</span></td>
-                        <td>2025-11-30</td>
-                        <td><span class="status-soon">🟠 即将截止</span></td>
-                        <td><a href="conf-aiot-2026.html" class="btn-detail">详情</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>BigData 2025</strong></td>
-                        <td>IEEE Big Data Conf<br><span style="font-size:0.8rem; color:#888;">🇺🇸 New York, USA</span></td>
-                        <td>2025-10-20</td>
-                        <td><span class="status-closed">🔴 已截止</span></td>
-                        <td><span style="color:#999;">无</span></td>
-                    </tr>
-                    
+                {% for conf in site.data.conferences %}
+                <tr>
+                    <td><strong>{{ conf.abbr }}</strong></td>
+                    <td>{{ conf.name }}<br><span style="font-size:0.8rem; color:#888;">{{ conf.flag }} {{ conf.location }}</span></td>
+                    <td>{{ conf.deadline }}</td>
+                    <td><span class="{{ conf.status_class }}">{{ conf.status }}</span></td>
+                    <td>
+                        {% if conf.url and conf.url != "#" %}
+                        <a href="{{ conf.url }}" class="btn-detail">详情</a>
+                        {% else %}
+                        <span style="color:#999;">无</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
                 </tbody>
             </table>
 
