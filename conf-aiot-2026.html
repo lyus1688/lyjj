@@ -93,6 +93,17 @@
         <aside class="sidebar">
             <div class="date-box">
                 <h3 style="margin-top:0; color:#e67e22;">⏳ 重要日期</h3>
+                                <div class="section-box" style="margin-top: 20px;">
+                <h3 style="font-size:1.1rem; margin-top:0;">📚 引用此会议 (BibTeX)</h3>
+                
+                <textarea id="bibtex-content" style="width:100%; height:100px; font-family:monospace; font-size:0.8rem; border:1px solid #ddd; background:#f9f9f9; padding:10px; box-sizing:border-box;">@conference{aiot2026,
+  title={International Conference on Computer Vision (aiot)},
+  year={2026},
+  address={Beijing, China}
+}</textarea>
+                
+                <button onclick="copyToClipboard()" style="margin-top:10px; background:#333; color:white; border:none; padding:8px 15px; cursor:pointer; border-radius:4px; font-size:0.9rem; width:100%;">📋 一键复制 BibTeX</button>
+            </div>
                 
                 <div class="date-item">
                     <span class="date-label">Abstract Deadline (摘要截止)</span>
@@ -116,6 +127,20 @@
 
                 <a href="#" class="btn-submit">前往官网投稿 &rarr;</a>
             </div>
+            <aside class="sidebar">
+                <div class="date-box">
+                <h2>🔍 您可能还感兴趣的会议：</h2>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 15px;">
+                        <span style="background:#eef4fc; color:#0056b3; padding:2px 6px; border-radius:4px; font-size:0.8rem; margin-right:10px;">即将截止</span>
+                        <a href="conf-aiot-2026.html" style="text-decoration:none; font-weight:bold; color:#333;">AIoT 2026: AI & Internet of Things (Singapore)</a>
+                    </li>
+                    <li>
+                        <span style="background:#ffebee; color:#c62828; padding:2px 6px; border-radius:4px; font-size:0.8rem; margin-right:10px;">已截止</span>
+                        <a href="#" style="text-decoration:none; color:#999;">BigData 2025 (New York)</a>
+                    </li>
+                </ul>
+            </div>
         </aside>
 
     </div>
@@ -123,6 +148,22 @@
     <footer style="text-align:center; padding:30px 0; color:#999;">
         <p>&copy; 2025 CallFourPaper.xyz</p>
     </footer>
+    <script>
+    function copyToClipboard() {
+        // 1. 找到那个文本框
+        var copyText = document.getElementById("bibtex-content");
+        
+        // 2. 选中里面的文字
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* 兼容手机端 */
+        
+        // 3. 执行复制命令
+        navigator.clipboard.writeText(copyText.value).then(() => {
+            // 4. 弹出提示成功
+            alert("复制成功！✅\n可以直接粘贴到你的 LaTeX 论文里了。");
+        });
+    }
+    </script>
 
 </body>
 </html>
