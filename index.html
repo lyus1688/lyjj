@@ -292,7 +292,12 @@
                     <h2 style="margin:0; border-left: 5px solid var(--accent-color); padding-left: 15px;">📅 近期热门会议</h2>
                     <p style="color:#666; font-size:0.9rem; margin: 5px 0 0 0;">汇集最新 EI/Scopus 检索信息</p>
                 </div>
-            <div class="filter-group">
+
+           <a href="mailto:text@example.com?subject=申请发布学术会议&body=你好，我想在贵网站发布会议信息：%0d%0a%0d%0a会议名称：%0d%0a官网链接：%0d%0a截稿日期：%0d%0a举办地点：" 
+                   class="btn-submit-conf">
+                   ➕ 发布会议
+                </a>
+                           <div class="filter-group">
                 <span style="font-size:0.9rem; color:#666; margin-right:10px;">快速筛选:</span>
                 <button class="filter-btn active" onclick="filterByBtn('')">全部</button>
                 <button class="filter-btn" onclick="filterByBtn('Vision')">计算机视觉</button>
@@ -300,10 +305,6 @@
                 <button class="filter-btn" onclick="filterByBtn('Big Data')">大数据</button>
                 <button class="filter-btn" onclick="filterByBtn('IEEE')">IEEE</button>
             </div>
-           <a href="mailto:text@example.com?subject=申请发布学术会议&body=你好，我想在贵网站发布会议信息：%0d%0a%0d%0a会议名称：%0d%0a官网链接：%0d%0a截稿日期：%0d%0a举办地点：" 
-                   class="btn-submit-conf">
-                   ➕ 发布会议
-                </a>
             </div>
             <div style="margin-bottom: 20px; position: relative;">
                 <input type="text" id="mySearchInput" onkeyup="searchTable()" placeholder="🔍 搜索会议名称、地点..." 
