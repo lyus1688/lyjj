@@ -186,6 +186,11 @@
             padding: 12px 15px;
             color: var(--primary-color);
             border-bottom: 2px solid #eee;
+            
+            /* 新增：表头吸顶 */
+            position: sticky; 
+            top: 0;
+            z-index: 10; /* 保证在最上层 */
         }
         td {
             padding: 12px 15px;
@@ -230,6 +235,32 @@
             background-color: #555; /* 鼠标放上去变深灰色 */
             transform: translateY(-3px); /* 微微上浮 */
         }
+        /* 筛选按钮样式 */
+        .filter-group {
+            margin-bottom: 15px;
+            overflow-x: auto; /* 手机上可以左右滑 */
+            white-space: nowrap;
+        }
+        .filter-btn {
+            background-color: #f1f3f4;
+            border: 1px solid transparent;
+            border-radius: 20px; /* 胶囊形状 */
+            padding: 6px 15px;
+            font-size: 0.85rem;
+            color: #555;
+            cursor: pointer;
+            margin-right: 8px;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover {
+            background-color: #e8eaed;
+        }
+        /* 选中状态 */
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
@@ -257,6 +288,14 @@
  <section class="container">
         <div class="table-container">
             <h2 style="margin-top:0; border-left: 5px solid var(--accent-color); padding-left: 15px;">📅 2026 近期热门会议截稿时间表</h2>
+            <div class="filter-group">
+                <span style="font-size:0.9rem; color:#666; margin-right:10px;">快速筛选:</span>
+                <button class="filter-btn active" onclick="filterByBtn('')">全部</button>
+                <button class="filter-btn" onclick="filterByBtn('Vision')">计算机视觉</button>
+                <button class="filter-btn" onclick="filterByBtn('AIoT')">物联网 (AIoT)</button>
+                <button class="filter-btn" onclick="filterByBtn('Big Data')">大数据</button>
+                <button class="filter-btn" onclick="filterByBtn('IEEE')">IEEE</button>
+            </div>
             <p style="color:#666; font-size:0.9rem; margin-bottom:20px;">这里汇集了最新的 EI/Scopus 检索会议信息，点击“详情”查看征稿要求。</p>
             <div style="margin-bottom: 20px; position: relative;">
                 <input type="text" id="mySearchInput" onkeyup="searchTable()" placeholder="🔍 搜索会议名称、地点..." 
@@ -440,6 +479,25 @@
             top: 0,
             behavior: "smooth"
         });
+    }
+        // --- 快捷筛选按钮逻辑 ---
+    function filterByBtn(keyword) {
+        // 1. 把关键词填入搜索框
+        var input = document.getElementById("mySearchInput");
+        input.value = keyword;
+        
+        // 2. 触发原有的搜索功能
+        searchTable();
+        
+        // 3. 切换按钮的“选中状态”样式 (变蓝)
+        // 先把所有按钮的 .active 去掉
+        var btns = document.getElementsByClassName("filter-btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].classList.remove("active");
+        }
+        // 再给当前点击的按钮加上 .active
+        // (注意：这里我们用 event.target 获取当前点击的元素)
+        event.target.classList.add("active");
     }
     
     </script>
