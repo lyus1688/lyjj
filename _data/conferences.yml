@@ -1,0 +1,26 @@
+- abbr: ICCV 2026
+  name: Int'l Conf. on Computer Vision
+  location: Beijing, China
+  flag: 🇨🇳
+  deadline: 2025-12-15
+  status: 🟢 征稿中
+  status_class: status-open
+  url: conf-iccv-2026.html
+
+- abbr: AIoT 2026
+  name: AI & Internet of Things
+  location: Singapore
+  flag: 🇸🇬
+  deadline: 2025-11-30
+  status: 🟠 即将截止
+  status_class: status-soon
+  url: conf-aiot-2026.html
+
+- abbr: BigData 2025
+  name: IEEE Big Data Conf
+  location: New York, USA
+  flag: 🇺🇸
+  deadline: 2025-10-20
+  status: 🔴 已截止
+  status_class: status-closed
+  url: #
