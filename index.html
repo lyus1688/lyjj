@@ -2,62 +2,41 @@
 ---
 <!DOCTYPE html>
 <html lang="zh-CN">
-{% include header.html %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学术会议聚合平台 | CallFourPaper</title>
+    <meta name="description" content="专注于计算机视觉、AIoT、大数据等领域的学术会议截稿信息聚合与SEO推广。">
+    
+    <link rel="icon" href="avatar.jpg" type="image/jpeg">
+    
+    {% include analytics.html %}
+
     <style>
         :root {
-            --primary-color: #0056b3; /* 更稳重的深蓝色 */
-            --accent-color: #e67e22; /* 活力的橙色作为点缀 */
+            --primary-color: #0056b3;
+            --accent-color: #e67e22;
             --bg-color: #f4f6f8;
             --text-color: #333;
             --card-bg: #ffffff;
         }
         body {
-            font-family: "Microsoft YaHei", "Heiti SC", 'Segoe UI', sans-serif; /* 优先使用微软雅黑 */
+            font-family: "Microsoft YaHei", "Heiti SC", 'Segoe UI', sans-serif;
             line-height: 1.7;
             margin: 0;
             color: var(--text-color);
             background-color: var(--bg-color);
         }
 
-        /* 顶部导航 */
-        header {
-            background: var(--card-bg);
-            border-bottom: 1px solid #ddd;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
+        /* 布局相关 */
         .container {
             width: 92%;
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 15px;
         }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-        .nav-links a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: #555;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--primary-color); }
-
-        /* 头部大图区域 (Hero Section) */
+        
+        /* 头部大图区域 */
         .hero {
             background: linear-gradient(135deg, #0056b3 0%, #004494 100%);
             color: white;
@@ -130,26 +109,10 @@
         .widget li { margin-bottom: 12px; border-bottom: 1px dashed #eee; padding-bottom: 8px; }
         .widget a { text-decoration: none; color: #666; display: block; }
         .widget a:hover { color: var(--primary-color); padding-left: 5px; transition: padding 0.2s; }
-        
         .profile-box { text-align: center; }
         .profile-box img { width: 80px; height: 80px; border-radius: 50%; background: #ddd; margin-bottom: 10px; }
 
-        /* 底部 */
-        footer {
-            background: #222;
-            color: #aaa;
-            text-align: center;
-            padding: 50px 0;
-            margin-top: auto;
-        }
-
-        /* 手机端适配 */
-        @media (max-width: 768px) {
-            .content-wrapper { flex-direction: column; }
-            .nav-links { display: none; } /* 手机端暂时隐藏菜单 */
-            .hero h1 { font-size: 1.8rem; }
-        }
-        /* 新增：会议时间表样式 */
+        /* 会议表格样式 */
         .table-container {
             background: #fff;
             padding: 25px;
@@ -157,35 +120,25 @@
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             border: 1px solid #eaeaea;
-            overflow-x: auto; /* 手机上可以左右滑动 */
+            overflow-x: auto;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-        }
+        table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
         th {
             background-color: #f8f9fa;
             text-align: left;
             padding: 12px 15px;
             color: var(--primary-color);
             border-bottom: 2px solid #eee;
-            
-            /* 新增：表头吸顶 */
             position: sticky; 
             top: 0;
-            z-index: 10; /* 保证在最上层 */
+            z-index: 10;
         }
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #eee;
-        }
+        td { padding: 12px 15px; border-bottom: 1px solid #eee; }
         tr:hover { background-color: #fcfcfc; }
         
-        /* 状态标签 */
-        .status-open { color: #2ecc71; font-weight: bold; } /* 征稿中-绿色 */
-        .status-soon { color: #e67e22; font-weight: bold; } /* 快截止-橙色 */
-        .status-closed { color: #e74c3c; text-decoration: line-through; color: #999; } /* 已截止-灰色 */
+        .status-open { color: #2ecc71; font-weight: bold; }
+        .status-soon { color: #e67e22; font-weight: bold; }
+        .status-closed { color: #e74c3c; text-decoration: line-through; color: #999; }
         
         .btn-detail {
             background-color: var(--primary-color);
@@ -196,105 +149,40 @@
             font-size: 0.85rem;
         }
         .btn-detail:hover { opacity: 0.9; }
-        /* 回到顶部按钮样式 */
-        #myBtn {
-            display: none; /* 默认隐藏 */
-            position: fixed; /* 固定定位 */
-            bottom: 20px; /* 距离底部 20px */
-            right: 30px; /* 距离右侧 30px */
-            z-index: 99; /* 保证在最上层 */
-            border: none;
-            outline: none;
-            background-color: var(--primary-color); /* 用你的主色调 */
-            color: white;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 50%; /* 圆形 */
-            font-size: 18px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 加点阴影 */
-            transition: background-color 0.3s, transform 0.3s;
-        }
 
-        #myBtn:hover {
-            background-color: #555; /* 鼠标放上去变深灰色 */
-            transform: translateY(-3px); /* 微微上浮 */
+        /* 按钮与筛选 */
+        .btn-submit-conf {
+            background-color: #28a745; color: white; text-decoration: none; padding: 8px 15px; border-radius: 6px; font-size: 0.9rem; font-weight: bold; box-shadow: 0 2px 5px rgba(40, 167, 69, 0.3); white-space: nowrap;
         }
-        /* 筛选按钮样式 */
-        .filter-group {
-            margin-bottom: 15px;
-            overflow-x: auto; /* 手机上可以左右滑 */
-            white-space: nowrap;
-        }
-        .filter-btn {
-            background-color: #f1f3f4;
-            border: 1px solid transparent;
-            border-radius: 20px; /* 胶囊形状 */
-            padding: 6px 15px;
-            font-size: 0.85rem;
-            color: #555;
-            cursor: pointer;
-            margin-right: 8px;
-            transition: all 0.2s;
-        }
-        .filter-btn:hover {
-            background-color: #e8eaed;
-        }
-        /* 选中状态 */
-        .filter-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }/* FAQ 样式 */
-        .faq-item {
-            background: #fff;
-            border-bottom: 1px solid #eee;
-            padding: 15px 0;
-        }
-        .faq-item summary {
-            font-weight: bold;
-            cursor: pointer;
-            list-style: none; /* 去掉默认的小三角 */
-            position: relative;
-            padding-right: 20px;
-            font-size: 1.05rem;
-            color: #333;
-        }
-        /* 自定义一个小箭头 */
-        .faq-item summary::after {
-            content: '+'; 
-            position: absolute;
-            right: 0;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        /* 展开时的样式 */
-        .faq-item[open] summary::after {
-            content: '-';
-        }
-        .faq-item p {
-            margin-top: 10px;
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            padding-left: 10px;
-            border-left: 3px solid #eee;
+        .btn-submit-conf:hover { background-color: #218838; transform: translateY(-2px); }
+
+        .filter-group { margin-bottom: 15px; overflow-x: auto; white-space: nowrap; }
+        .filter-btn { background-color: #f1f3f4; border: 1px solid transparent; border-radius: 20px; padding: 6px 15px; font-size: 0.85rem; color: #555; cursor: pointer; margin-right: 8px; transition: all 0.2s; }
+        .filter-btn:hover { background-color: #e8eaed; }
+        .filter-btn.active { background-color: var(--primary-color); color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+        /* 回到顶部按钮 */
+        #myBtn { display: none; position: fixed; bottom: 20px; right: 30px; z-index: 99; border: none; outline: none; background-color: var(--primary-color); color: white; cursor: pointer; padding: 15px; border-radius: 50%; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: background-color 0.3s, transform 0.3s; }
+        #myBtn:hover { background-color: #555; transform: translateY(-3px); }
+
+        /* FAQ 样式 */
+        .faq-item { background: #fff; border-bottom: 1px solid #eee; padding: 15px 0; }
+        .faq-item summary { font-weight: bold; cursor: pointer; list-style: none; position: relative; padding-right: 20px; font-size: 1.05rem; color: #333; }
+        .faq-item summary::after { content: '+'; position: absolute; right: 0; font-weight: bold; color: var(--primary-color); }
+        .faq-item[open] summary::after { content: '-'; }
+        .faq-item p { margin-top: 10px; color: #666; font-size: 0.95rem; line-height: 1.6; padding-left: 10px; border-left: 3px solid #eee; }
+
+        /* 手机适配 */
+        @media (max-width: 768px) {
+            .content-wrapper { flex-direction: column; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 1.8rem; }
         }
     </style>
+</head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">LY博客(text)</a>
-                <div class="nav-links">
-                    <a href="index.html">首页</a>
-                    <a href="seo-guide.html">SEO策略</a>
-                    <a href="index.html">学术会议动态</a>
-                    <a href="#footer-info">关于我</a>
-                </div>
-            </nav>
-        </div>
-    </header>
+    {% include header.html %}
 
     <section class="hero">
         <div class="container">
@@ -302,7 +190,8 @@
             <p>分享基于 Google 与 Bing 的搜索引擎优化实战经验，助力学术聚合平台流量增长。</p>
         </div>
     </section>
- <section class="container">
+
+    <section class="container">
         <div class="table-container">
             
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
@@ -310,7 +199,7 @@
                     <h2 style="margin:0; border-left: 5px solid var(--accent-color); padding-left: 15px;">📅 近期热门会议</h2>
                     <p style="color:#666; font-size:0.9rem; margin: 5px 0 0 0;">汇集最新 EI/Scopus 检索信息</p>
                 </div>
-              
+                <a href="mailto:contact@example.com?subject=申请发布学术会议" class="btn-submit-conf">➕ 发布会议</a>
             </div>
             
             <div class="filter-group">
@@ -358,41 +247,36 @@
 
         </div>
     </section>
+
     <div class="container content-wrapper">
-    
         <main class="main-content">
-            
-          <main class="main-content">
             
             {% for post in site.posts limit:5 %}
             <article class="article-card">
                 <span class="tag">{{ post.category }}</span>
                 <h2 class="article-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
                 <div class="meta">发布于 {{ post.date | date: "%Y年%m月%d日" }}</div>
-                
                 <p class="excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
-                
                 <a href="{{ post.url }}" class="read-more">阅读全文 &rarr;</a>
             </article>
             {% endfor %}
 
-        </main>
             <div class="section-box" style="margin-top: 40px;">
                 <h2 style="border-left: 5px solid var(--accent-color); padding-left: 15px;">❓ 常见问题解答 (FAQ)</h2>
                 
                 <details class="faq-item">
                     <summary>如何判断一个学术会议是否被 EI 检索？</summary>
-                    <p>最准确的方法是查询该会议往届的出版记录。如果往届论文集在 Engineering Village (EI Compendex) 中能查到，且出版社未变动，那么今年被检索的概率极高。请务必警惕承诺“100%检索”的会议。</p>
+                    <p>最准确的方法是查询该会议往届的出版记录。如果往届论文集在 Engineering Village (EI Compendex) 中能查到，且出版社未变动，那么今年被检索的概率极高。</p>
                 </details>
 
                 <details class="faq-item">
                     <summary>CCF A/B/C 类会议有什么区别？</summary>
-                    <p>CCF 推荐列表是中国计算机学会发布的权威目录。A类为顶级会议（如 CVPR, ICCV），难度极大；B类为高水平会议；C类为重要会议。一般博士毕业要求发表 CCF B 类以上论文。</p>
+                    <p>CCF 推荐列表是中国计算机学会发布的权威目录。A类为顶级会议（如 CVPR, ICCV），难度极大；B类为高水平会议；C类为重要会议。</p>
                 </details>
 
                 <details class="faq-item">
                     <summary>投稿后多久能收到录用通知？</summary>
-                    <p>这取决于具体会议。顶级会议（如 ICCV）通常有固定的审稿周期（约 3-4 个月）。而一般的小型会议通常在投稿后 1-2 个月内给出结果。请在投稿前仔细阅读 Important Dates 页面。</p>
+                    <p>这取决于具体会议。顶级会议（如 ICCV）通常有固定的审稿周期（约 3-4 个月）。而一般的小型会议通常在投稿后 1-2 个月内给出结果。</p>
                 </details>
             </div>
 
@@ -428,7 +312,9 @@
             </div>
         </aside>
     </div>
-<button onclick="topFunction()" id="myBtn" title="回到顶部">⬆️ Top</button>
+
+    <button onclick="topFunction()" id="myBtn" title="回到顶部">⬆️ Top</button>
+
     <div style="background-color: #f8f9fa; border-top: 1px solid #eee; padding: 40px 0; margin-top: 60px;">
         <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
             
@@ -442,7 +328,7 @@
             <div style="flex: 1; min-width: 150px;">
                 <h4 style="margin-top: 0; color: var(--primary-color);">站内导航</h4>
                 <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
-                    <li style="margin-bottom: 8px;"><a href="submit.html" style="text-decoration: none; color: #555;">➕ 提交会议/商务合作</a></li>
+                    <li style="margin-bottom: 8px;"><a href="mailto:contact@example.com" style="text-decoration: none; color: #555;">➕ 提交会议/商务合作</a></li>
                     <li style="margin-bottom: 8px;"><a href="seo-guide.html" style="text-decoration: none; color: #555;">📚 学术 SEO 指南</a></li>
                     <li style="margin-bottom: 8px;"><a href="sitemap.xml" style="text-decoration: none; color: #555;">🗺️ 网站地图 (XML)</a></li>
                 </ul>
@@ -454,44 +340,39 @@
                     <li style="margin-bottom: 8px;"><a href="https://www.ieee.org" target="_blank" style="text-decoration: none; color: #555;">IEEE 官网</a></li>
                     <li style="margin-bottom: 8px;"><a href="https://www.ccf.org.cn" target="_blank" style="text-decoration: none; color: #555;">中国计算机学会 (CCF)</a></li>
                     <li style="margin-bottom: 8px;"><a href="https://scholar.google.com" target="_blank" style="text-decoration: none; color: #555;">Google Scholar</a></li>
-                    </ul>
+                </ul>
             </div>
 
         </div>
     </div>
-<footer id="footer-info" style="text-align:center; padding:30px 0; color:#999;">
+
+    <footer id="footer-info" style="text-align:center; padding:30px 0; color:#999;">
         <div class="container">
             <p>&copy; 2025 Ly. 保留所有权利.</p>
             <p style="font-size: 0.8rem; opacity: 0.6;">基于 GitHub Pages 构建 | 专注于学术会议 SEO 解决方案</p>
         </div>
     </footer>
+
     <script>
+    // 搜索功能
     function searchTable() {
-        // 1. 获取输入框的内容
         var input = document.getElementById("mySearchInput");
-        var filter = input.value.toUpperCase(); // 转大写，实现不区分大小写搜索
-        
-        // 2. 获取表格和每一行
+        var filter = input.value.toUpperCase(); 
         var table = document.querySelector("table");
         var tr = table.getElementsByTagName("tr");
 
-        // 3. 循环遍历所有行，隐藏不符合条件的
-        for (var i = 1; i < tr.length; i++) { // i=1 是为了跳过表头(th)
+        for (var i = 1; i < tr.length; i++) { 
             var tdArr = tr[i].getElementsByTagName("td");
             var found = false;
-            
-            // 检查这一行的每一列数据
             for (var j = 0; j < tdArr.length; j++) {
                 if (tdArr[j]) {
                     var txtValue = tdArr[j].textContent || tdArr[j].innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
                         found = true;
-                        break; // 只要有一列匹配，就显示这一行
+                        break; 
                     }
                 }
             }
-            
-            // 决定显示还是隐藏
             if (found) {
                 tr[i].style.display = "";
             } else {
@@ -500,7 +381,7 @@
         }
     }
     
-    // 给输入框加点交互效果：聚焦时边框变蓝
+    // 输入框聚焦效果
     var searchBox = document.getElementById("mySearchInput");
     searchBox.addEventListener("focus", function() {
         this.style.borderColor = "#0056b3";
@@ -508,16 +389,12 @@
     searchBox.addEventListener("blur", function() {
         this.style.borderColor = "#eee";
     });
-           // --- 回到顶部按钮逻辑 ---
-    
-    // 1. 获取按钮
-    var mybutton = document.getElementById("myBtn");
 
-    // 2. 监听页面滚动事件
+    // 回到顶部功能
+    var mybutton = document.getElementById("myBtn");
     window.onscroll = function() {scrollFunction()};
 
     function scrollFunction() {
-        // 如果向下滚动超过 200px，就显示按钮
         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
             mybutton.style.display = "block";
         } else {
@@ -525,37 +402,25 @@
         }
     }
 
-    // 3. 点击按钮，回到顶部
     function topFunction() {
-        // 平滑滚动效果
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
     }
-        // --- 快捷筛选按钮逻辑 ---
+
+    // 筛选按钮功能
     function filterByBtn(keyword) {
-        // 1. 把关键词填入搜索框
         var input = document.getElementById("mySearchInput");
         input.value = keyword;
-        
-        // 2. 触发原有的搜索功能
         searchTable();
-        
-        // 3. 切换按钮的“选中状态”样式 (变蓝)
-        // 先把所有按钮的 .active 去掉
         var btns = document.getElementsByClassName("filter-btn");
         for (var i = 0; i < btns.length; i++) {
             btns[i].classList.remove("active");
         }
-        // 再给当前点击的按钮加上 .active
-        // (注意：这里我们用 event.target 获取当前点击的元素)
         event.target.classList.add("active");
     }
-    
     </script>
-
-    
 
 </body>
 </html>
