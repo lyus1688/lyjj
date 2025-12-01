@@ -1,3 +1,5 @@
+
+
 ---
 ---
 <!DOCTYPE html>
@@ -320,4 +322,107 @@
             
             <div style="flex: 1; min-width: 250px;">
                 <h4 style="margin-top: 0; color: var(--primary-color);">关于 CallFourPaper</h4>
-                <p style="font-size
+                <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">
+                    我们致力于为全球科研人员提供最及时、准确的学术会议截稿信息。覆盖计算机视觉、人工智能、物联网等前沿领域。
+                </p>
+            </div>
+
+            <div style="flex: 1; min-width: 150px;">
+                <h4 style="margin-top: 0; color: var(--primary-color);">站内导航</h4>
+                <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                    <li style="margin-bottom: 8px;"><a href="mailto:contact@example.com" style="text-decoration: none; color: #555;">➕ 提交会议/商务合作</a></li>
+                    <li style="margin-bottom: 8px;"><a href="seo-guide.html" style="text-decoration: none; color: #555;">📚 学术 SEO 指南</a></li>
+                    <li style="margin-bottom: 8px;"><a href="sitemap.xml" style="text-decoration: none; color: #555;">🗺️ 网站地图 (XML)</a></li>
+                </ul>
+            </div>
+
+            <div style="flex: 1; min-width: 200px;">
+                <h4 style="margin-top: 0; color: var(--primary-color);">友情链接 / 合作伙伴</h4>
+                <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                    <li style="margin-bottom: 8px;"><a href="https://www.ieee.org" target="_blank" style="text-decoration: none; color: #555;">IEEE 官网</a></li>
+                    <li style="margin-bottom: 8px;"><a href="https://www.ccf.org.cn" target="_blank" style="text-decoration: none; color: #555;">中国计算机学会 (CCF)</a></li>
+                    <li style="margin-bottom: 8px;"><a href="https://scholar.google.com" target="_blank" style="text-decoration: none; color: #555;">Google Scholar</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <footer id="footer-info" style="text-align:center; padding:30px 0; color:#999;">
+        <div class="container">
+            <p>&copy; 2025 Ly. 保留所有权利.</p>
+            <p style="font-size: 0.8rem; opacity: 0.6;">基于 GitHub Pages 构建 | 专注于学术会议 SEO 解决方案</p>
+        </div>
+    </footer>
+
+    <script>
+    // 搜索功能
+    function searchTable() {
+        var input = document.getElementById("mySearchInput");
+        var filter = input.value.toUpperCase(); 
+        var table = document.querySelector("table");
+        var tr = table.getElementsByTagName("tr");
+
+        for (var i = 1; i < tr.length; i++) { 
+            var tdArr = tr[i].getElementsByTagName("td");
+            var found = false;
+            for (var j = 0; j < tdArr.length; j++) {
+                if (tdArr[j]) {
+                    var txtValue = tdArr[j].textContent || tdArr[j].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        found = true;
+                        break; 
+                    }
+                }
+            }
+            if (found) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+    
+    // 输入框聚焦效果
+    var searchBox = document.getElementById("mySearchInput");
+    searchBox.addEventListener("focus", function() {
+        this.style.borderColor = "#0056b3";
+    });
+    searchBox.addEventListener("blur", function() {
+        this.style.borderColor = "#eee";
+    });
+
+    // 回到顶部功能
+    var mybutton = document.getElementById("myBtn");
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    // 筛选按钮功能
+    function filterByBtn(keyword) {
+        var input = document.getElementById("mySearchInput");
+        input.value = keyword;
+        searchTable();
+        var btns = document.getElementsByClassName("filter-btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].classList.remove("active");
+        }
+        event.target.classList.add("active");
+    }
+    </script>
+
+</body>
+</html>
